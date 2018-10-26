@@ -1,0 +1,23 @@
+{
+  "name": "collab",
+  "version": "1.0.0",
+  "description": "a platform to find poeple to collaborate with on a project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "collaboration",
+    "partnership"
+  ],
+  "author": "fabrice beya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.7",
+    "nodemon": "^1.18.5",
+    "passport": "^0.4.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}
