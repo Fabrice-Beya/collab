@@ -1,6 +1,11 @@
 var express = require("express");
 var router = express.Router();
 var UserController = require("../controllers/user");
+var { register}    = require('../controllers/auth');
+
+// handle a registration post request
+
+router.post("/register", register);
 
 // get all users
 router.get("/", function(req, res){

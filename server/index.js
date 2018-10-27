@@ -1,3 +1,6 @@
+// load all enviromental variables
+require("dotenv").config();
+
 const express       = require("express"),
     app             = express(),
     userRouter      = require('./routes/user'),
@@ -7,8 +10,6 @@ const express       = require("express"),
     cors            = require('cors'),
     errorhander     = require('./controllers/error'),
     PORT            = 3002;
-
-mongoose.connect('mongodb://localhost/collab', { useNewUrlParser: true });
 
 app.use(cors());
 app.use(bodyParser.json());
