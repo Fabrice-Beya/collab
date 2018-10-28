@@ -19,7 +19,7 @@ app.get("/", function(req, res){
 });
 
 app.use("/api/user", userRouter);
-app.use("/api/project", projectRouter);
+app.use("/api/users/:id/projects", projectRouter);
 
 //error handling, if it doesnt hit any of the routes send a 404 error.
 app.use(function(req, res, next){

@@ -18,7 +18,11 @@ var UserSchema = new mongoose.Schema({
     },
     profileImageUrl: {
         type: String
-    }
+    },
+    projects: [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Project"
+    }]
 });
 
 // add a hook before the document is saved
@@ -37,6 +41,7 @@ UserSchema.pre("save", async function (next){
         return next(error)
     }
 })
+
 
 // add a method to the user document to compare a candidate password with the currently saved hashed 
 // passowrd
