@@ -12,9 +12,9 @@ export default class Header extends React.Component {
                 <div className="col-md-10 col-lg-8 mx-auto">
                     <br></br>
                     <br></br>
-                    <h4>
+                    <h2>
                         A catalyst platform for finding collaborators.
-                    </h4>
+                    </h2>
                     <br></br>
                     <button className="btn btn-light btn-md">
                       Get Started
