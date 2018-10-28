@@ -18,16 +18,33 @@ export default class AuthForm extends React.Component {
            [e.target.name]: e.target.value
        });
     }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const authType = this.props.register ? "register" : "login";
+        this.props.onAuth(authType, this.state).then(() => {
+            console.log("Logged in");
+        })
+    }
     
   render() {
     const {email, username, profileImageUrl, password} = this.state
-    const {buttonText, heading, register} = this.props
+    const {buttonText, heading, register, errors, history, removeError} = this.props
+
+    //listen for any change in route then remove previsou errors
+    history.listen(()=>{
+        removeError();
+    })
+
     return (
       <div className="authForm">
           <div className="row justify-content-md-center text-center">
             <div className="col-md-6 ">
             <form onSubmit={this.handleSubmit}>
             <h1>{heading}</h1>
+            {errors.message && 
+                <div className="alert alert-danger">{errors.message}</div>
+            }
             <div className='form-group'>
                 <label for="username">Username</label>
                 <input 
