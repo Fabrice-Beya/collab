@@ -1,11 +1,19 @@
 var express = require("express");
 var router = express.Router({mergeParams: true});
-var {createProject} = require("../controllers/project");
+var {createProject, getProject, deleteProject, updateProject} = require("../controllers/project");
 
 // all routes will be prefixed by /api/user/:id/projects
 
 // handle project create
 router.route("/").post(createProject);
+
+// get projects by id
+router
+    .route("/:project_id")
+    .get(getProject)
+    .put(updateProject)
+    .delete(deleteProject)
+
 
 // // get all projects
 // router.get("/", function(req, res){

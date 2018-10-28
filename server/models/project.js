@@ -18,15 +18,18 @@ var ProjectSchema = new mongoose.Schema({
     collaborators : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : "User"
-    }],
-    
-});
+    }]
+},
+{
+    timestamps: true
+}
+);
 
 // add a hook to delete a project from a user projects list 
 ProjectSchema.pre('remove', async function(next){
     try {
         // find the associated user
-        let user = await User.findById(this.userId);
+        let user = await User.findById(this.founder);
         // remove project from user list
         user.remove(this.id);
         // save the user

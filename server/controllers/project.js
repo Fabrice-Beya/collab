@@ -1,23 +1,14 @@
 var db = require("../models");
 
-exports.getAll = async function(req, res, next){
-    Project.find({}, function(err, projects){
-        if(err){
-            console.log(err);
-        } else {
-            res.json(projects);
-        }
-    })
-}
+// GET = api/users/:id/projects/:project_id
+exports.getProject = async function(req, res, next){
 
-exports.getProjectById = function(req, res, next){
-    Project.find({_id:id}, function(err, project){
-        if(err){
-            console.log(err);
-        } else {
-            res.json(project);
-        }
-    })
+    try {
+        let foundProject = await db.Project.findById(req.params.project_id);
+        return res.status(200).json(foundProject);
+    } catch (error) {
+        return next(error);
+    }
 }
 
 exports.createProject = async function(req, res, next){
@@ -49,33 +40,22 @@ exports.createProject = async function(req, res, next){
 }
 
 exports.updateProject = async function(req, res, next){
-    Project.findOneAndUpdate({_id:project._id}, project, function(err, updatedProject){
-        if(err){
-            console.log(err);
-        } else {
-            exports.getProjectById(project._id, res);
-        }
-    })
+    try {
+        let updatedProject = await db.Project.findByIdAndUpdate(req.params.project_id,req.body);
+        return res.status(200).json(updatedProject);
+    } catch (error) {
+        return next(error);
+    }
 }
 
-exports.deleteProject = function(req, res, next){
-    Project.remove({_id:id}, function(err){
-        if(err){
-            console.log(err);
-        } else {
-            exports.getAll(res);
-        }
-    })
-}
-
-exports.deleteAllProject = function(req, res,next){
-    Project.remove({}, function(err){
-        if(err){
-            console.log(err);
-        } else {
-            exports.getAll(res);
-        }
-    })
+exports.deleteProject = async function(req, res, next){
+    try {
+        let foundProject = await db.Project.findById(req.params.project_id);
+        await foundProject.remove();
+        return res.status(200).json(foundProject);
+    } catch (error) {
+        return next(error);
+    }
 }
 
 module.exports = exports
