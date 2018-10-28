@@ -63,6 +63,7 @@ exports.login = async function(req, res, next){
         return res.status(200).json({
             id,
             username,
+            email,
             profileImageUrl,
             token
         });

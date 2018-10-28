@@ -22,8 +22,12 @@ export default class AuthForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         const authType = this.props.register ? "register" : "login";
-        this.props.onAuth(authType, this.state).then(() => {
-            console.log("Logged in");
+        this.props.onAuth(authType, this.state)
+        .then(() => {
+            this.props.history.push("/");
+        })
+        .catch(()=>{
+            return;
         })
     }
     
@@ -32,9 +36,12 @@ export default class AuthForm extends React.Component {
     const {buttonText, heading, register, errors, history, removeError} = this.props
 
     //listen for any change in route then remove previsou errors
-    history.listen(()=>{
-        removeError();
-    })
+    if (errors.message) {
+        const unlisten = history.listen(() => {
+          removeError()
+          unlisten()
+        })
+      }
 
     return (
       <div className="authForm">
@@ -96,7 +103,7 @@ export default class AuthForm extends React.Component {
                     value={password}
                     onChange={this.handleChange}/>
             </div>
-            <button type="submit" class="btn btn-primary">{buttonText}</button>
+            <button type="submit" class="btn btn-primary btn-block">{buttonText}</button>
         </form>
             </div>
           </div>

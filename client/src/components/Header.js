@@ -3,7 +3,7 @@ import '../styles/Header.css';
 
 export default class Header extends React.Component {
   render() {
-  
+  const {message, buttonText} = this.props
     return (
       
         <header className="masthead" >
@@ -13,11 +13,11 @@ export default class Header extends React.Component {
                     <br></br>
                     <br></br>
                     <h2>
-                        A catalyst platform for finding collaborators.
+                        {message}
                     </h2>
                     <br></br>
                     <button className="btn btn-light btn-md">
-                      Get Started
+                      {buttonText}
                     </button>
                   
                 </div>

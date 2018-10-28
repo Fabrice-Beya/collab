@@ -6,11 +6,12 @@ const DEFAULT_STATE = {
 }
 
 export default (state = DEFAULT_STATE, action) =>{
-    switch(action.types){
+    console.log(action.user)
+    switch(action.type){
         case SET_CURRENT_USER:
             return {
                 // if the user object returned has keys we assume it is authenticated...
-                isAuthenticated: !!Object.keys(action.user).length,
+                isAuthenticated: Object.keys(action.user).length>0,
                 user: action.user
             }
         default:

@@ -19,19 +19,19 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <nav className="nav navbar-nav ml-auto ">
                             <Link exact to="/">
-                                <li className="nav-item" role="presentation"><a class="nav-link">Create</a></li>
+                                <li className="nav-item" role="presentation"><a href="/" class="nav-link">Create</a></li>
                             </Link>
                             <Link exact to="/">
-                                <li className="nav-item" role="presentation"><a class="nav-link">Explore</a></li>
+                                <li className="nav-item" role="presentation"><a href="/" class="nav-link">Explore</a></li>
                             </Link>
                             <Link exact to="/">
-                                <li className="nav-item" role="presentation"><a class="nav-link">About</a></li>
+                                <li className="nav-item" role="presentation"><a href="/" class="nav-link">About</a></li>
                             </Link>
                             <Link exact to="/register">
-                                <li className="nav-item" role="presentation"><a class="nav-link">Register</a></li>
+                                <li className="nav-item" role="presentation"><a href="/" class="nav-link">Register</a></li>
                             </Link>
                             <Link exact to="/login">
-                                <li className="nav-item" role="presentation"><a class="nav-link">Login</a></li>
+                                <li className="nav-item" role="presentation"><a href="/" class="nav-link">Login</a></li>
                             </Link>
                         </nav>
                     </div>
