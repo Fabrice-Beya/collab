@@ -7,19 +7,19 @@ export default class Header extends React.Component {
     return (
       
         <header className="masthead" >
-          <div className="overlay">
-          </div>
-          <div className="container text-light">
+          <div className="container text-light text-center">
               <div className="row">
                 <div className="col-md-10 col-lg-8 mx-auto">
-                  <div className="site-heading">
                     <br></br>
                     <br></br>
                     <h4>
                         A catalyst platform for finding collaborators.
                     </h4>
-                    
-                  </div>
+                    <br></br>
+                    <button className="btn btn-light btn-md">
+                      Get Started
+                    </button>
+                  
                 </div>
               </div>
           </div>

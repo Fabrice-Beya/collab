@@ -1,11 +1,17 @@
-.site-heading {
-    margin-top: 150px;
-}
 
-Header {
-    /* background-image: url('../img/header.png'); */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    height: 450px; 
-    background-color: rgb(22, 22, 22);
+
+.masthead {
+    background-image: url('../images/home-hero-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: rgb(38, 37, 37); */
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
 }
