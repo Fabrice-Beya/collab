@@ -45,10 +45,10 @@ export default class AuthForm extends React.Component {
 
     return (
       <div className="authForm">
-          <div className="row justify-content-md-center text-center">
+          <div className="row justify-content-md-center">
             <div className="col-md-6 ">
             <form onSubmit={this.handleSubmit}>
-            <h1>{heading}</h1>
+            <h1 className="text-center">{heading}</h1>
             {errors.message && 
                 <div className="alert alert-danger">{errors.message}</div>
             }

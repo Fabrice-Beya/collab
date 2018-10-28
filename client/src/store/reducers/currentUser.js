@@ -11,7 +11,7 @@ export default (state = DEFAULT_STATE, action) =>{
         case SET_CURRENT_USER:
             return {
                 // if the user object returned has keys we assume it is authenticated...
-                isAuthenticated: Object.keys(action.user).length>0,
+                isAuthenticated: !!Object.keys(action.user).length,
                 user: action.user
             }
         default:
