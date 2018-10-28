@@ -9,7 +9,8 @@ const express       = require("express"),
     bodyParser      = require('body-parser'),
     cors            = require('cors'),
     errorhander     = require('./controllers/error'),
-    PORT            = 3002;
+    PORT            = 3002,
+    {authenticate, authorize}   = require('./middleware/auth');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,7 +20,7 @@ app.get("/", function(req, res){
 });
 
 app.use("/api/user", userRouter);
-app.use("/api/users/:id/projects", projectRouter);
+app.use("/api/users/:id/projects", authenticate, authorize, projectRouter);
 
 //error handling, if it doesnt hit any of the routes send a 404 error.
 app.use(function(req, res, next){
