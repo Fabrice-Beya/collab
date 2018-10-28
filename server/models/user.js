@@ -40,11 +40,10 @@ UserSchema.pre("save", async function (next){
 
 // add a method to the user document to compare a candidate password with the currently saved hashed 
 // passowrd
-UserSchema.method.comparePassword = async function(candidatePassword, next){
+UserSchema.methods.comparePassword = async function(candidatePassword, next){
     try {
         let comparison = await bcrypt.compare(candidatePassword, this.password);
         return comparison;
-        
     } catch (error) {
         return next(error)
     }

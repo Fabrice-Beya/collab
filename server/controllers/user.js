@@ -20,16 +20,6 @@ exports.getUserById = function(id, res){
     })
 }
 
-exports.createUser = function(user, res){
-    User.create(user, function(err, newUser){
-        if(err){
-            console.log(err);
-        } else {
-            res.json(newUser);
-        }
-    })
-}
-
 exports.updateUser = function(user, res){
     User.findOneAndUpdate({_id:user._id}, user, function(err, updatedUser){
         if(err){

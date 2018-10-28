@@ -1,11 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var UserController = require("../controllers/user");
-var { register}    = require('../controllers/auth');
+var { register, login}    = require('../controllers/auth');
 
 // handle a registration post request
-
 router.post("/register", register);
+
+// handle a user login request
+router.post("/login", login);
 
 // get all users
 router.get("/", function(req, res){
@@ -15,12 +17,7 @@ router.get("/", function(req, res){
 // get by id
 router.get("/:id", function(req, res){
     UserController.getUserById(req.params.id, res);
-})
-
-// post new user 
-router.post("/", function(req, res){
-    UserController.createUser(req.body, res);
-})  
+}) 
 
 // put user 
 router.put("/", function(req, res){

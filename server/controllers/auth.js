@@ -24,12 +24,8 @@ exports.register = async function(req, res, next){
             profileImageUrl,
             token
         })
-
-        // create a token
-        // with use process.env.SECRET_KEY to sign jwt token
-
     } catch (error) {
-        // check mongo validation failure
+        // check for a mongo validation failure
         if(error.code === 11000){
             error.message = "Sorry, Username or Email is already taken."
         }
@@ -43,9 +39,45 @@ exports.register = async function(req, res, next){
 
 exports.login = async function(req, res, next){
     try {
+    // find a user
+    let user = await db.User.findOne({
+        username: req.body.username
+    })
+
+    // destructure user properties
+    let {id, username, email, profileImageUrl} = user;
+
+    // check the password entered is correct
+    let isMatch = await user.comparePassword(req.body.password)
+
+    if(isMatch){
+        // make a token
+        let token = jwt.sign({
+            id,
+            username,
+            email,
+            profileImageUrl
+        },
+        process.env.SECRET_KEY
+        );
+        return res.status(200).json({
+            id,
+            username,
+            profileImageUrl,
+            token
+        });
+    } else {
+        return next({
+            status: 400,
+            message: "Invalid Username/Password."
+        })
+    }
         
     } catch (error) {
-        return next(error)
+        return next({
+            status: 400,
+            message: "Invalid Username/Password."
+        })
     }
 }
 
