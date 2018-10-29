@@ -25,9 +25,7 @@ export default class Homepage extends React.Component {
       title="What is Collab?"
       paragraph="Collab is an online space where people can find collaborators to work with on a project.
                   Once you register you will be able to post projects that you would like people to collaborate on
-                  , and people who like you project will be able to connect with you." />
-
-
+                  ,and people who like you project will be able to connect with you." />
     </div>
    );
     

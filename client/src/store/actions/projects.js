@@ -1,37 +1,48 @@
 import { apiCall } from "../../services/api";
-import { LOAD_PROJECTS, LOAD_ALL_PROJECTS } from "../actionTypes";
 import { addError } from "./errors";
+import { LOAD_PROJECTS, LOAD_ALL_PROJECTS, ADD_PROJECT } from "../actionTypes";
 
-export function loadProjects(projects) {
-  return {
+export const loadProjects = (projects)=> ({
     type: LOAD_PROJECTS,
     projects
+});
+
+export const loadAllProjects = (projects)=> ({
+  type: LOAD_PROJECTS,
+  projects
+});
+
+export function addProject(project) {
+  return {
+    type: ADD_PROJECT,
+    project
   };
 }
 
-export function loadAllProjects(projects) {
-    return {
-      type: LOAD_ALL_PROJECTS,
-      projects
-    };
-}
-
-export function logout(){
-  return dispatch => {
-    localStorage.clear();
-    dispatch(setCurrentUser({}));
-  };
-}
-
-export function authUser(type, userData) {
+export function fetchProjects() {
   return dispatch => {
     // wrap our thunk in a promise so we can wait for the API call
     return new Promise((resolve, reject) => {
-      return apiCall("post", `/api/user/${type}`, userData)
-        .then(({ token, ...user }) => {
-          localStorage.setItem("jwtToken", token);
-          dispatch(setCurrentUser(user));
-          dispatch(removeError());
+      return apiCall("get", `/api/projects`)
+        .then(res => {
+          dispatch(loadAllProjects(res));
+          resolve(); // indicate that the API call succeeded
+        })
+        .catch(err => {
+          dispatch(addError(err.message));
+          reject(); // indicate the API call failed
+        });
+    });
+  };
+}
+
+export function addNewProject(userId, projectData) {
+  return dispatch => {
+    // wrap our thunk in a promise so we can wait for the API call
+    return new Promise((resolve, reject) => {
+      return apiCall("post", `/api/users/${userId}/projects`, projectData)
+        .then(({ token, ...project }) => {
+          dispatch(addProject(project));
           resolve(); // indicate that the API call succeeded
         })
         .catch(err => {

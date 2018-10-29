@@ -15,16 +15,18 @@ class Navbar extends Component {
         return(
             <nav className="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav">
                 <div className="container">
-                <a className="navbar-brand" href="/">
-                    <img src={logo} alt="collab logo"/>
-                </a>
+                <Link exact to="/">
+                    <a className="navbar-brand" href="/">
+                        <img src={logo} alt="collab logo"/>
+                    </a>
+                </Link>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                     {this.props.currentUser.isAuthenticated ? (
                         <nav className="nav navbar-nav ml-auto ">
-                        <Link exact to="/">
+                        <Link exact to="/create">
                             <li className="nav-item" role="presentation"><a href="/" class="nav-link">Create</a></li>
                         </Link>
                         <Link exact to="/">

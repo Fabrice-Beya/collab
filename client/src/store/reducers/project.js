@@ -1,20 +1,19 @@
-import {LOAD_PROJECTS, LOAD_ALL_PROJECTS} from '../actionTypes';
+import {LOAD_PROJECTS, LOAD_ALL_PROJECTS, ADD_PROJECT} from '../actionTypes';
+
 
 const DEFAULT_STATE = {
-    projects:{}
+    myProjects:[],
+    allProjects:[]
 }
 
 export default (state = DEFAULT_STATE, action) =>{
-    console.log(action.user)
     switch(action.type){
+        case ADD_PROJECT:
+            return {...state.myProjects, myProjects: [...state.myProjects, action.project]}
         case LOAD_PROJECTS:
-            return {
-                projects: action.projects
-            }
+            return {...state.myProjects, myProjects: [...state.myProjects, ...action.projects]}
         case LOAD_ALL_PROJECTS:
-            return {
-                projects: action.projects
-            }
+            return {...state.allProjects, allProjects: [...state.allProjects, action.projects]}
         default:
             return state;
     }

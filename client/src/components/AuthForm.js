@@ -103,7 +103,7 @@ export default class AuthForm extends React.Component {
                     value={password}
                     onChange={this.handleChange}/>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">{buttonText}</button>
+            <button type="submit" class="btn btn-dark btn-block">{buttonText}</button>
         </form>
             </div>
           </div>
