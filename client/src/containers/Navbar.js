@@ -29,7 +29,7 @@ class Navbar extends Component {
                         <Link exact to="/create">
                             <li className="nav-item" role="presentation"><a href="/" class="nav-link">Create</a></li>
                         </Link>
-                        <Link exact to="/">
+                        <Link exact to="/explore">
                             <li className="nav-item" role="presentation"><a href="/" class="nav-link">Explore</a></li>
                         </Link>
                         <Link exact to="/">
@@ -44,7 +44,7 @@ class Navbar extends Component {
                     </nav>
                     ) : (
                         <nav className="nav navbar-nav ml-auto ">
-                            <Link exact to="/">
+                            <Link exact to="/explore">
                                 <li className="nav-item" role="presentation"><a href="/" class="nav-link">Explore</a></li>
                             </Link>
                             <Link exact to="/">

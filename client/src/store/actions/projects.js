@@ -8,7 +8,7 @@ export const loadProjects = (projects)=> ({
 });
 
 export const loadAllProjects = (projects)=> ({
-  type: LOAD_PROJECTS,
+  type: LOAD_ALL_PROJECTS,
   projects
 });
 

@@ -13,7 +13,7 @@ import {removeError} from '../store/actions/errors';
 const Main = props => { 
 const {authUser, errors, removeError, currentUser, addNewProject} = props;
     return (
-        <div className="container">
+        <div className="page-container container">
             <Switch>
                 <Route exact path="/" render={props => <Homepage currentUser={currentUser} {...props} />} />
                 <Route exact path="/create" render={props => <Createpage addNewProject={addNewProject} currentUser={currentUser} removeError={removeError} errors={errors} {...props} />} />

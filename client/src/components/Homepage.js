@@ -7,8 +7,6 @@ export default class Homepage extends React.Component {
     const {currentUser} = this.props;
    return(
      <div>
-
-    
     <div>
     { 
     currentUser.isAuthenticated ? (

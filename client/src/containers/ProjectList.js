@@ -1,18 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchProjects} from '../store/actions/projects'
+import {fetchProjects} from '../store/actions/projects';
+import ProjectItem from '../components/ProjectItem';
+import '../styles/ProjectList.css';
 
-const ProjectList = props => {
-    const {fetchProjects} = props
-    return(
-        <div className="row">
-            <ProjectList fetchProjects={fetchProjects}/>
-        </div>
-    )
+class ProjectList extends Component {
+    
+    componentDidMount() {
+      this.props.fetchProjects()
+    }
+    
+    render(){
+        const {projects} = this.props
+        let projectList = projects.allProjects.map(p => (
+            <ProjectItem
+                key={p._id}
+                date={p.createAt}
+                title={p.title}
+                description={p.description}
+                username={p.founder.username} 
+                />
+        ));
+        return(
+            <div className="main">
+               {projectList}
+            </div>
+            
+        )
+    }
 }
 
 function mapStateToProps(state){
     return {
+        currentUser: state.currentUser,
         projects: state.projects
     }
 }

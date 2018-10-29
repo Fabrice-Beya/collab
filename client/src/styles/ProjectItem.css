@@ -1,0 +1,12 @@
+.project-item {
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+a:hover {
+    color: rgb(7, 7, 7,1);
+}

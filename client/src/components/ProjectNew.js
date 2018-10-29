@@ -20,7 +20,7 @@ export default class ProjectNew extends React.Component {
         e.preventDefault();
         this.props.addNewProject(this.props.currentUser.user.id, this.state)
         .then(() => {
-            this.props.history.push("/");
+            this.props.history.push("/explore");
         })
         .catch(()=>{
             return;
