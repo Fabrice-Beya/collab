@@ -4,14 +4,17 @@ import ProjectList from '../containers/ProjectList';
 export default class Explorepage extends React.Component {
   render() {
    return(
-     
-      <div className="row justify-content-md-center text-center">
-        <div className="col-md-6">
+     <div>
+      <div className="text-center">
+        <br/>
+        <br/>
         <h1>Available Projects</h1>
-        </div>
-            <ProjectList />
-            
-          </div>
+        <hr/>
+      </div>
+      <div className="row text-center">
+        <ProjectList />
+      </div>
+      </div>
    );
   }
 }

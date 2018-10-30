@@ -1,5 +1,6 @@
 .project-item {
-    margin-top: 50px;
+    margin-top: 70px;
+    padding: 10px; 
 }
 
 a {
@@ -10,3 +11,10 @@ a {
 a:hover {
     color: rgb(7, 7, 7,1);
 }
+/* 
+p {
+    white-space: nowrap;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */

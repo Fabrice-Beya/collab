@@ -9,10 +9,10 @@ class ProjectList extends Component {
     componentDidMount() {
       this.props.fetchProjects()
     }
-    
+
     render(){
         const {projects} = this.props
-        let projectList = projects.allProjects.map(p => (
+        let projectList = projects.map(p => (
             <ProjectItem
                 key={p._id}
                 date={p.createAt}
@@ -34,7 +34,7 @@ class ProjectList extends Component {
 function mapStateToProps(state){
     return {
         currentUser: state.currentUser,
-        projects: state.projects
+        projects: state.projects.allProjects
     }
 }
 

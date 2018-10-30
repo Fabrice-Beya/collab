@@ -9,7 +9,7 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) =>{
     switch(action.type){
         case ADD_PROJECT:
-            return {...state.myProjects, myProjects: action.project}
+            return {...state.allProjects, allProjects: {...action.project}}
         case LOAD_PROJECTS:
             return {...state.myProjects, myProjects: [...action.projects]}
         case LOAD_ALL_PROJECTS:
