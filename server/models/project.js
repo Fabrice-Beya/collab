@@ -4,7 +4,12 @@ const User     = require('./user');
 var ProjectSchema = new mongoose.Schema({
     title : {
         type: String,
-        default: "Empty Project name",
+        default: "Empty Project title",
+        maxlength: 160
+    },
+    subTitle : {
+        type: String,
+        default: "Empty Project sub-title",
         maxlength: 160
     },
     description : {

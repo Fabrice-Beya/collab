@@ -17,6 +17,7 @@ exports.createProject = async function(req, res, next){
         //  create a new project document, user id is expected from url parameters
         let project = await db.Project.create({
             title: req.body.title,
+            subTitle: req.body.subTitle,
             description: req.body.description,
             founder: req.params.id
         })

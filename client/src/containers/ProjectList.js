@@ -17,6 +17,7 @@ class ProjectList extends Component {
                 key={p._id}
                 date={p.createAt}
                 title={p.title}
+                subTitle={p.subTitle}
                 description={p.description}
                 username={p.founder.username} 
                 />

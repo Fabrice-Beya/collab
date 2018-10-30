@@ -6,6 +6,7 @@ export default class ProjectNew extends React.Component {
         super(props);
         this.state = {
             title: "",
+            subTitle:"",
             description: "",
         }
     }
@@ -20,7 +21,7 @@ export default class ProjectNew extends React.Component {
         e.preventDefault();
         this.props.addNewProject(this.props.currentUser.user.id, this.state)
         .then(() => {
-            this.props.history.push("/explore");
+            this.props.history. push("/explore");
         })
         .catch(()=>{
             return;
@@ -28,7 +29,7 @@ export default class ProjectNew extends React.Component {
     }
     
   render() {
-    const {title, description} = this.state
+    const {title,subTitle, description} = this.state
     const {errors, history, removeError} = this.props
 
     //listen for any change in route then remove previous errors
@@ -49,7 +50,7 @@ export default class ProjectNew extends React.Component {
                 <div className="alert alert-danger">{errors.message}</div>
             }
             <div className='form-group'>
-                <label for="username">Title</label>
+                <label for="title">Title</label>
                 <input 
                     type="text" 
                     class="form-control" 
@@ -59,6 +60,18 @@ export default class ProjectNew extends React.Component {
                     value={title}
                     onChange={this.handleChange}/>
             </div>
+            <div className='form-group'>
+                <label for="subTitle">Sub-Title</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="subTitle" 
+                    name="subTitle" 
+                    placeholder="Enter sub title" 
+                    value={subTitle}
+                    onChange={this.handleChange}/>
+            </div>
+
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea  

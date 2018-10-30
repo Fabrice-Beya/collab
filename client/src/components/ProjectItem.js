@@ -3,12 +3,13 @@ import '../styles/ProjectItem.css';
 import { Link } from "react-router-dom";
 
 
-const ProjectItem = ({title, description, profileImageUrl, username, date}) => {
+const ProjectItem = ({title, description, profileImageUrl, subTitle, username, date}) => {
     return (
         <div className="col-md-4">
         <div className="message-area project-item">
             <Link to="/">
                 <h4>{title}</h4>
+                <h6> {subTitle}</h6>
             </Link>
             <p>{description}</p>
             <Link to="/">{username} &nbsp;</Link>
