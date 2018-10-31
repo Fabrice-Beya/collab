@@ -35,7 +35,7 @@ class Navbar extends Component {
                         <Link exact to="/">
                             <li className="nav-item" role="presentation"><a href="/" class="nav-link">About</a></li>
                         </Link>
-                        <Link exact to="/">
+                        <Link exact to="/profile">
                             <li className="nav-item" role="presentation"><a href="/" class="nav-link">{this.props.currentUser.user.username}</a></li>
                         </Link>
                         

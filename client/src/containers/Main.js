@@ -4,6 +4,7 @@ import Homepage from '../components/Homepage';
 import AuthForm from '../components/AuthForm';
 import Createpage from '../components/Createpage';
 import Explorepage from '../components/Explorepage';
+import Profilepage from '../components/Profilepage';
 import {connect} from 'react-redux';
 import {authUser} from '../store/actions/auth';
 import {addNewProject} from '../store/actions/projects';
@@ -18,6 +19,7 @@ const {authUser, errors, removeError, currentUser, addNewProject} = props;
                 <Route exact path="/" render={props => <Homepage currentUser={currentUser} {...props} />} />
                 <Route exact path="/create" render={props => <Createpage addNewProject={addNewProject} currentUser={currentUser} removeError={removeError} errors={errors} {...props} />} />
                 <Route exact path="/explore" render={props => <Explorepage currentUser={currentUser} {...props} />} />
+                <Route exact path="/profile" render={props => <Profilepage currentUser={currentUser} {...props} />} />
                 <Route exact path="/login" render={props => 
                     <AuthForm onAuth={authUser} removeError={removeError} errors={errors} buttonText="Login" heading="Welcome back" {...props} />} />
                 <Route exact path="/register" render={props => 
